@@ -98,7 +98,7 @@ function buildCSV(columns, data, options) {
 }
 
 function downloadCSV(csv, filename) {
-  const blob = new Blob([csv], { type: 'text/csv' });
+  const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
 
   /* taken from react-csv */
   if (navigator && navigator.msSaveOrOpenBlob) {
